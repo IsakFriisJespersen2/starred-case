@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server:start": "node ./backend/bin/www",
-    "server:dev": "node --watch ./backend/bin/www",
+    "server:start": "node  --env-file=.env ./backend/bin/www",
+    "server:dev": "node --env-file=.env --watch ./backend/bin/www",
     "db:reset": "node ./db/seed.js",
     "client:build": "nuxt build",
     "client:dev": "nuxt dev",
