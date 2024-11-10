@@ -1,9 +1,24 @@
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { Starred } from '../icons/starred';
+import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { User } from '../App';
 
-const JobCard = ({ company, description, id, job_title }) => {
+const JobCard = ({
+  company,
+  description,
+  id,
+  job_title,
+}: {
+  company: string;
+  description: string;
+  id: number;
+  job_title: string;
+}) => {
   return (
     <div className='shadow-lg bg-gray-90 rounded-lg p-6 max-w-sm'>
+      <span className='flex justify-end w-full'>
+        <Starred className='h-6 w-6 fill-white' />
+      </span>
       <div className='mb-2 text-gray-500 text-xs'>Job ID: {id}</div>
       <h2 className='text-xl font-semibold text-gray-800'>{job_title}</h2>
       <h3 className='text-lg text-gray-600'>{company}</h3>
@@ -12,7 +27,7 @@ const JobCard = ({ company, description, id, job_title }) => {
   );
 };
 
-export const Jobs = () => {
+export const Jobs = ({ user }: { user: User | undefined }) => {
   const [search, setSearch] = useState<string>('');
   const [page, setPage] = useState<number>(0);
 
@@ -21,18 +36,20 @@ export const Jobs = () => {
     page: String(page),
   });
 
-  console.log(queryString.toString());
   const query = useQuery({
     queryKey: ['jobs', queryString.toString()],
     queryFn: () => fetch(`http://localhost:3001/jobs?${queryString.toString()}`).then((res) => res.json()),
   });
 
-  console.log(query);
   if (query.isFetching) <div>Jobs area loading</div>;
 
   return (
-    <div className='min-w-full flex flex-col gap-6 w-full'>
-      <div className='w-full flex justify-end rounded-md'>
+    <section className='flex flex-col gap-6'>
+      <div className='flex justify-between items-end rounded-md'>
+        <div className='flex gap-x-6'>
+          <button className='underline'>All</button>
+          <button>My Starred</button>
+        </div>
         <input
           minLength={2}
           onChange={(e) => setSearch(e.target.value)}
@@ -54,10 +71,10 @@ export const Jobs = () => {
       <div className='flex justify-center w-full gap-8'>
         <button onClick={() => setPage((prev) => (prev > 0 ? (prev -= 1) : 0))}>Prev</button>
         <p>
-          {page} of {10}
+          {page + 1} of {10}
         </p>
         <button onClick={() => setPage((prev) => (prev += 1))}>Next</button>
       </div>
-    </div>
+    </section>
   );
 };

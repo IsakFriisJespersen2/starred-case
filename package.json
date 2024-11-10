@@ -6,7 +6,7 @@
   "scripts": {
     "server:start": "node -r esm --env-file=.env ./backend/bin/www",
     "server:dev": "node -r esm --env-file=.env --watch  ./backend/bin/www",
-    "db:reset": "node ./db/seed.js",
+    "db:reset": "node ./db/seed.cjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
