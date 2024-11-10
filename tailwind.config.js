@@ -11,7 +11,7 @@ const colors = {
     80: '#323131',
     90: '#1B1A1A',
     100: '#0B0B0B',
-    110: '#000000'
+    110: '#000000',
   },
   green: {
     10: '#DEF7E8',
@@ -23,7 +23,7 @@ const colors = {
     70: '#166C3A',
     80: '#10512B',
     90: '#0B381E',
-    100: '#062011'
+    100: '#062011',
   },
   lightGreen: {
     10: '#EEFFE5',
@@ -35,11 +35,13 @@ const colors = {
     70: '#60BE8E',
     80: '#2D5B49',
     90: '#162A29',
-    100: '#102120'
+    100: '#102120',
   },
-}
+};
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
       transparent: 'transparent',
@@ -55,7 +57,7 @@ module.exports = {
           70: colors.gray[70],
           80: colors.gray[80],
           90: colors.gray[90],
-          100: colors.gray[100]
+          100: colors.gray[100],
         },
         primary: {
           10: colors.lightGreen[10],
@@ -67,7 +69,7 @@ module.exports = {
           70: colors.lightGreen[70],
           80: colors.lightGreen[80],
           90: colors.lightGreen[90],
-          100: colors.lightGreen[100]
+          100: colors.lightGreen[100],
         },
         secondary: {
           0: colors.gray[10],
@@ -81,7 +83,7 @@ module.exports = {
           80: colors.gray[80],
           90: colors.gray[90],
           100: colors.gray[100],
-          110: colors.gray[110]
+          110: colors.gray[110],
         },
         success: {
           10: colors.green[10],
@@ -93,7 +95,7 @@ module.exports = {
           70: colors.green[70],
           80: colors.green[80],
           90: colors.green[90],
-          100: colors.green[100]
+          100: colors.green[100],
         },
       },
       background: {
@@ -101,11 +103,11 @@ module.exports = {
           layer: {
             0: colors.gray[0],
             1: colors.gray[0],
-            2: colors.gray[20]
+            2: colors.gray[20],
           },
           primary: {
-            dark: colors.lightGreen[90]
-          }
+            dark: colors.lightGreen[90],
+          },
         },
         interactive: {
           // primary
@@ -140,13 +142,13 @@ module.exports = {
           // disabled
           disabled: colors.gray[30],
           // read-only
-          readOnly: colors.gray[20]
-        }
+          readOnly: colors.gray[20],
+        },
       },
       border: {
         layer: {
           1: colors.gray[30],
-          inBetween: colors.gray[20]
+          inBetween: colors.gray[20],
         },
         interactive: {
           // primary
@@ -154,8 +156,8 @@ module.exports = {
           // secondary
           secondarySubtle: colors.gray[30],
           secondarySubtleHovered: colors.gray[60],
-          secondarySubtlePressed: colors.gray[80]
-        }
+          secondarySubtlePressed: colors.gray[80],
+        },
       },
       foreground: {
         static: {
@@ -167,7 +169,7 @@ module.exports = {
             display: colors.gray[80],
             head: colors.gray[80],
             title: colors.gray[80],
-            primary: colors.lightGreen[90]
+            primary: colors.lightGreen[90],
           },
           // light
           light: {
@@ -176,7 +178,7 @@ module.exports = {
             display: colors.gray[0],
             head: colors.gray[0],
             title: colors.gray[0],
-            primary: colors.lightGreen[60]
+            primary: colors.lightGreen[60],
           },
           // neutral
           detail: colors.gray[50],
@@ -226,11 +228,10 @@ module.exports = {
           // disabled
           disabled: colors.gray[40],
           // read-only
-          readOnly: colors.gray[80]
-
-        }
+          readOnly: colors.gray[80],
+        },
       },
-      ...colors
+      ...colors,
     },
     letterSpacing: {
       tighter: '-0.01em',
@@ -238,7 +239,7 @@ module.exports = {
       normal: '0em',
       wide: '0.04em',
       wider: '0.05em',
-      widest: '.06em'
+      widest: '.06em',
     },
     fontSize: {
       xs: '.750rem',
@@ -248,12 +249,9 @@ module.exports = {
       xl: '1.25rem',
     },
     fontFamily: {
-      sans: ['Roboto Flex', 'system-ui']
+      sans: ['Roboto Flex', 'system-ui'],
     },
   },
   variants: {},
-  plugins: [
-    // ...
-  ]
-
-}
+  plugins: [],
+};

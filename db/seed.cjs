@@ -1,6 +1,6 @@
-const { faker } = require('@faker-js/faker');
+jonst { faker } = require('@faker-js/faker');
 const fs = require('fs');
-const db = require('./db.js');
+const db = require('./db.cjs');
 
 function generateJobs(num) {
   const jobs = [];

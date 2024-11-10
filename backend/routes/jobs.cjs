@@ -1,5 +1,5 @@
 var express = require('express');
-var checkForSearchString = require('./utils/searchHandler.js');
+var checkForSearchString = require('./utils/searchHandler.cjs');
 var router = express.Router();
 
 /* GET all jobs. */
@@ -21,7 +21,7 @@ router.get('/', checkForSearchString, async function (req, res, next) {
   }
 
   res.json({
-    data: await response.json(),
+    ...(await response.json()),
     error: {},
   });
 });
@@ -44,7 +44,7 @@ router.get('/:jobId', async function (req, res, next) {
   }
 
   res.json({
-    data: await response.json(),
+    ...(await response.json()),
     error: {},
   });
 });

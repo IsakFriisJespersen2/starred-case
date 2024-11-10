@@ -3,8 +3,8 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 
-var usersRouter = require('./routes/users');
-var jobsRouter = require('./routes/jobs');
+var usersRouter = require('./routes/users.cjs');
+var jobsRouter = require('./routes/jobs.cjs');
 
 var app = express();
 
