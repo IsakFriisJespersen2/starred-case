@@ -1,6 +1,6 @@
-const { faker } = require('@faker-js/faker');
-const fs = require('fs');
-const db = require('./db.cjs');
+const { faker } = require("@faker-js/faker");
+const fs = require("fs");
+const db = require("./db.js");
 
 function generateJobs(num) {
   const jobs = [];
@@ -32,18 +32,26 @@ function generateUsers(num) {
 }
 
 function reset() {
-  const sql = fs.readFileSync(__dirname + '/schema.sql').toString();
-  db.exec(fs.readFileSync(__dirname + '/schema.sql').toString());
+  const sql = fs.readFileSync(__dirname + "/schema.sql").toString();
+  db.exec(fs.readFileSync(__dirname + "/schema.sql").toString());
 
   seed();
-  console.log('Database has been reset and seeded');
+  console.log("Database has been reset and seeded");
 }
 
 function seed() {
   const users = generateUsers(10);
-  stmt = db.prepare('INSERT INTO user (firstName, lastName, email, password, salt) VALUES (?, ?, ?, ?, ?)');
+  stmt = db.prepare(
+    "INSERT INTO user (firstName, lastName, email, password, salt) VALUES (?, ?, ?, ?, ?)",
+  );
   users.forEach((user) => {
-    stmt.run(user.firstName, user.lastName, user.email, user.password, user.salt);
+    stmt.run(
+      user.firstName,
+      user.lastName,
+      user.email,
+      user.password,
+      user.salt,
+    );
   });
   stmt.finalize();
 

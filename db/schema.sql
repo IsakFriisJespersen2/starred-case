@@ -8,3 +8,12 @@ CREATE TABLE user (
   password TEXT NOT NULL,
   salt TEXT NOT NULL
 );
+
+
+DROP TABLE IF EXISTS favorite;
+CREATE TABLE favorite (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  userId INTEGER,
+  jobId INTEGER,
+  FOREIGN KEY(userId) REFERENCES user(id)
+);
