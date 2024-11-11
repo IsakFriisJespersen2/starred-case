@@ -1,5 +1,5 @@
 import { User } from '../../../App';
-import { ActiveTab } from '../Jobs';
+import { ActiveTab } from '..';
 
 export const Menu = ({
   user,

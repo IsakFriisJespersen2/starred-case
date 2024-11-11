@@ -18,13 +18,13 @@ export const Users = ({ user, setUser }: { user: User | undefined; setUser: (use
   return (
     <section>
       <select
+        defaultValue={'empty'}
         className='px-4 py-2'
         onChange={(e) => setUser(query.data?.data.find((user) => String(user.id) === e.target.value)!)}
       >
         <option
           disabled
-          selected
-          value=''
+          value='empty'
         >
           Choose a user
         </option>
