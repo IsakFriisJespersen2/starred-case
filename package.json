@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "client:install": "cd client && npm install",
+    "client:dev": "cd client && npm run dev",
+    "server:install": "npm install",
     "server:start": "node --env-file=.env ./backend/bin/www",
     "server:dev": "node --env-file=.env --watch ./backend/bin/www",
     "db:reset": "node ./db/seed.js"
