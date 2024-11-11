@@ -21,6 +21,7 @@ router.get("/", checkForSearchString, async function (req, res, next) {
     }
   } catch (err) {
     console.error(err.message);
+    return res.status(400).json({ error: err.message });
   }
 
   res.json({
@@ -47,6 +48,7 @@ router.get("/:jobId", async function (req, res, next) {
     }
   } catch (err) {
     console.error(err.message);
+    return res.status(400).json({ error: err.message });
   }
 
   res.json({
